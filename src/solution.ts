@@ -69,8 +69,31 @@ const books = [
   { title: 'Book f', rating: 5.0 },
 ];
 
-const highRatedItems = filterByRating(books);
-console.log(highRatedItems)
+// const highRatedItems = filterByRating(books);
+// console.log(highRatedItems)
 
+
+//porblem 5
+ 
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+ 
+function filterActiveUsers(users: User[]): User[] {
+  return users.filter((user) => user.isActive === true);
+}
+
+// Sample Input
+const users: User[] = [
+  { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
+  { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
+  { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
+];
+
+console.log(filterActiveUsers(users));
+ 
 
 
