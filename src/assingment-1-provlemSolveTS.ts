@@ -46,5 +46,31 @@ class Person{
 const Person1 = new Person('tanjil',22)
 const Person2 = new Person('tanjila',19)
 
-console.log(Person1.getDetails())
-console.log(Person2.getDetails())
+// console.log(Person1.getDetails())
+// console.log(Person2.getDetails())
+
+
+//problem 4
+
+interface Item {
+  title: string;
+  rating: number; 
+}
+
+function filterByRating(items: Item[]): Item[] {
+  return items.filter((item: Item) => item.rating >= 4);
+}
+const books = [
+  { title: 'Book A', rating: 4.5 },
+  { title: 'Book B', rating: 3.2 },
+  { title: 'Book C', rating: 5.0 },
+    { title: 'Book d', rating: 4.5 },
+  { title: 'Book e', rating: 3.2 },
+  { title: 'Book f', rating: 5.0 },
+];
+
+const highRatedItems = filterByRating(books);
+console.log(highRatedItems)
+
+
+
