@@ -1,5 +1,4 @@
 
-//  1 problem solve 
 
 function formatValue (Value:number|string|boolean){
 if(typeof Value ==='number'){
@@ -12,12 +11,9 @@ else{
     return !Value
 }
 }
-// console.log(formatValue('talksjf'))
+ 
 
-
-
-// 2nd problem 
-
+ 
 function getLength(value:string|any[] ) {
   if (typeof value === 'string' || Array.isArray(value)) {
     return value.length;
@@ -25,11 +21,9 @@ function getLength(value:string|any[] ) {
     return 0;
   }
 }
-// console.log(getLength('t '))
-// console.log(getLength([22,22,22,4]))
 
 
-// problem 3 
+
 
 class Person{
     name:string;
@@ -48,7 +42,6 @@ const Person2 = new Person('tanjila',19)
 
  
 
-//problem 4
 
 interface Item {
   title: string;
@@ -67,11 +60,10 @@ const books = [
   { title: 'Book f', rating: 5.0 },
 ];
 
-// const highRatedItems = filterByRating(books);
-// console.log(highRatedItems)
+const highRatedItems = filterByRating(books);
+ 
 
-
-//porblem 5
+ 
  
 type User = {
   id: number;
@@ -84,18 +76,15 @@ function filterActiveUsers(users: User[]): User[] {
   return users.filter((user) => user.isActive === true);
 }
 
-// Sample Input
-const users: User[] = [
+ const users: User[] = [
   { id: 1, name: "Rakib", email: "rakib@example.com", isActive: true },
   { id: 2, name: "Asha", email: "asha@example.com", isActive: false },
   { id: 3, name: "Rumi", email: "rumi@example.com", isActive: true },
 ];
 
-// console.log(filterActiveUsers(users));
+ 
 
-
-// problem 6
-interface Book {
+ interface Book {
   title: string;
   author: string;
   publishedYear: number;
@@ -122,6 +111,8 @@ const myBook1: Book = {
 
 
 printBookDetails(myBook1);
+printBookDetails(myBook);
+
 
 
  
@@ -163,6 +154,45 @@ function getUniqueValues(array1: (string | number)[], array2: (string | number)[
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
 
-console.log(getUniqueValues(array1, array2));
+const filter =getUniqueValues(array1,array2)
+
+ 
 
 
+
+ 
+
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;  
+}
+
+function calculateTotalPrice(products: Product[]): number {
+  if (products.length === 0) {
+    return 0;
+  }
+
+  const total = products.reduce((accumulator, product) => {
+    let productTotalPrice = product.price * product.quantity;
+
+    if (product.discount !== undefined) {
+      const discountAmount = (productTotalPrice * product.discount) / 100;
+      productTotalPrice -= discountAmount;
+    }
+
+    return accumulator + productTotalPrice;
+  }, 0);
+
+  return total;
+}
+
+const products = [
+  { name: 'Pen', price: 10, quantity: 2 },
+  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
+
+const ratting =calculateTotalPrice(products)
+ 
