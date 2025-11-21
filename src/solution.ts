@@ -40,15 +40,13 @@ class Person{
         this.age = age;
     }
     getDetails():string{
-        return `Name: ${this.name}, Age: ${this.age}`
+       return `'Name: ${this.name}, Age: ${this.age}'`;
     }
 }
 const Person1 = new Person('tanjil',22)
 const Person2 = new Person('tanjila',19)
 
-// console.log(Person1.getDetails())
-// console.log(Person2.getDetails())
-
+ 
 
 //problem 4
 
@@ -130,5 +128,41 @@ printBookDetails(myBook1);
  
 
 
+function getUniqueValues(array1: (string | number)[], array2: (string | number)[]): (string | number)[] {
+  const uniqueValues: (string | number)[] = [];
+
+   for (let i = 0; i < array1.length; i++) {
+    let isDuplicate = false;
+    for (let j = 0; j < uniqueValues.length; j++) {
+      if (array1[i] === uniqueValues[j]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+    if (!isDuplicate) {
+      uniqueValues[uniqueValues.length] = array1[i]!;
+    }
+  }
+
+   for (let i = 0; i < array2.length; i++) {
+    let isDuplicate = false;
+    for (let j = 0; j < uniqueValues.length; j++) {
+      if (array2[i] === uniqueValues[j]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+    if (!isDuplicate) {
+      uniqueValues[uniqueValues.length] = array2[i]!;
+    }
+  }
+
+  return uniqueValues;
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+
+console.log(getUniqueValues(array1, array2));
 
 
